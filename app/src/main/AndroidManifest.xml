@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ContactUserSide">
+        android:theme="@style/Theme.DataReceive.">
         <activity android:name=".ReadData"></activity>
         <activity android:name=".SubmitActivity"></activity>
         <activity android:name=".UserlistActivity"></activity>

@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".SubmitActivity">
 
+    <TextView
+        android:id="@+id/headers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Report Positive"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/nameEd"
         android:layout_width="match_parent"
@@ -13,37 +25,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:hint="Enter Name"
+        android:hint="Enter your UID"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/emailEd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Enter Email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameEd" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/passwordEd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Enter Password"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailEd" />
+        app:layout_constraintTop_toBottomOf="@+id/headers"
+        />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/submitBtn"
@@ -52,10 +38,21 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:text="Submit User"
+        android:text="Continue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEd" />
+        app:layout_constraintTop_toBottomOf="@id/nameEd" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameEd"
+        android:layout_marginTop="32dp"
+        android:visibility="gone"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

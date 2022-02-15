@@ -14,6 +14,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
         android:hint="Enter UID"
+        android:textColorHint="@color/black"
         android:gravity="center"
         android:textSize="18sp"
         android:textColor="@color/black"
@@ -146,21 +147,22 @@
         app:cardCornerRadius="8dp"
         app:cardElevation="20dp"
         android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardView2"
-        app:layout_constraintEnd_toStartOf="@id/post"
+
         app:cardBackgroundColor="@color/white"
         >
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="341dp"
             android:layout_height="wrap_content"
             android:layout_marginVertical="6dp"
             android:layout_marginStart="10dp"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="220dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:orientation="horizontal">
@@ -185,19 +187,19 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-    <Button
-        android:id="@+id/post"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/teal_200"
-        android:text="Post"
-        android:textSize="15sp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/cardView3"
-        app:layout_constraintTop_toTopOf="@id/cardView3"
-        app:layout_constraintBottom_toBottomOf="@id/cardView3"
-        />
+<!--    <Button-->
+<!--        android:id="@+id/post"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:backgroundTint="@color/teal_200"-->
+<!--        android:text="Post"-->
+<!--        android:textSize="15sp"-->
+<!--        android:textColor="@color/black"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toEndOf="@id/cardView3"-->
+<!--        app:layout_constraintTop_toTopOf="@id/cardView3"-->
+<!--        app:layout_constraintBottom_toBottomOf="@id/cardView3"-->
+<!--        />-->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView6"
         android:layout_width="match_parent"
@@ -209,112 +211,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView3"
-        app:cardBackgroundColor="@color/white"
+
         >
 
         <LinearLayout
             android:layout_width="361dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
+            android:background="@color/white"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:orientation="horizontal">
+            <Button
+                android:id="@+id/recy"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="20dp"
+                android:layout_marginRight="400dp"
+                android:backgroundTint="@color/teal_200"
+                android:text="Get Your Location"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ifYouAre"
+                />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Location : "
-                    android:textColor="@color/black"
-                    android:textSize="26sp"
-                    />
-
-                <TextView
-                    android:id="@+id/place"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="In Time : "
-                    android:textColor="@color/black"
-                    android:textSize="26sp"
-                    />
-
-                <TextView
-                    android:id="@+id/intime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Out Time : "
-                    android:textColor="@color/black"
-                    android:textSize="26sp"
-                    />
-
-                <TextView
-                    android:id="@+id/out"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Reader UID : "
-                    android:textColor="@color/black"
-                    android:textSize="26sp"
-                    />
-
-                <TextView
-                    android:id="@+id/uid"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
 
 
         </LinearLayout>
@@ -331,7 +252,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardView6"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="180dp"
             android:textSize="20sp"
             />
 

@@ -28,7 +28,7 @@ class UserlistActivity : AppCompatActivity() {
 
     private fun getUserData() {
 
-        dbref = FirebaseDatabase.getInstance().getReference("User")
+        dbref = FirebaseDatabase.getInstance().getReference("users")
 
         dbref.addValueEventListener(object : ValueEventListener{
 
@@ -36,7 +36,7 @@ class UserlistActivity : AppCompatActivity() {
 
                 if (snapshot.exists()){
 
-                    for (userSnapshot in snapshot.children){
+                    for (userSnapshot in snapshot.child("userName").child("visited").children){
 
 
                         val user = userSnapshot.getValue(User::class.java)

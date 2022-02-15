@@ -19,12 +19,12 @@ class MyAdapter(private val userList : ArrayList<User>) : RecyclerView.Adapter<M
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        val currentitem = userList[position]
+        val currentItem = userList[position]
 
-        holder.location.text = currentitem.location
-        holder.inTime.text = currentitem.inTime
-        holder.outTime.text = currentitem.outTime
-        holder.readerUID.text = currentitem.readerUID
+        holder.location.text = currentItem.location
+        holder.inTime.text = currentItem.inTime
+        holder.outTime.text = currentItem.outTime
+        holder.readerUID.text = currentItem.readerUID
 
     }
 

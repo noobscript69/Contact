@@ -26,6 +26,12 @@ class ReadData : AppCompatActivity() {
             startActivity(Intent(this, SubmitActivity::class.java))
         }
 
+        val button2 = findViewById<Button>(R.id.recy)
+
+        button2.setOnClickListener {
+            startActivity(Intent(this, UserlistActivity::class.java))
+        }
+
         binding.readdataBtn.setOnClickListener{
             val userName : String = binding.etusername.text.toString()
             if (userName.isNotEmpty()){
@@ -48,23 +54,24 @@ class ReadData : AppCompatActivity() {
                 val name = it.child("name").value
                 val phno = it.child("mobile").value
                 val report = it.child("positive").value
-                val location = it.child("visited").child("0").child("address").value
-                val inTime = it.child("visited").child("0").child("inTime").value
-                val outTime = it.child("visited").child("0").child("outTime").value
-                val readerUID = it.child("visited").child("0").child("readerUID").value
+//                val location = it.child("visited").child("0").child("address").value
+//                val inTime = it.child("visited").child("0").child("inTime").value
+//                val outTime = it.child("visited").child("0").child("outTime").value
+//                val readerUID = it.child("visited").child("0").child("readerUID").value
 
                 binding.etusername.text.clear()
                 binding.name.text = name.toString()
                 binding.phno.text = phno.toString()
                 binding.pos.text = report.toString()
-                binding.place.text = location.toString()
-                binding.intime.text = inTime.toString()
-                binding.out.text = outTime.toString()
-                binding.uid.text = readerUID.toString()
+//                binding.place.text = location.toString()
+//                binding.intime.text = inTime.toString()
+//                binding.out.text = outTime.toString()
+//                binding.uid.text = readerUID.toString()
 
             }else{
                 Toast.makeText(this, "Wrong UID Entered", Toast.LENGTH_SHORT).show()
             }
+
         }.addOnFailureListener{
             binding.progressBarRead.visibility= View.INVISIBLE
             binding.readdataBtn.visibility=View.VISIBLE

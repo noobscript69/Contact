@@ -13,6 +13,7 @@ class UserlistActivity : AppCompatActivity() {
     private lateinit var userArrayList : ArrayList<User>
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_userlist)
@@ -36,7 +37,7 @@ class UserlistActivity : AppCompatActivity() {
 
                 if (snapshot.exists()){
 
-                    for (userSnapshot in snapshot.child("userName").child("visited").children){
+                    for (userSnapshot in snapshot.child("Y9F2T3E7").child("visited").children){
 
 
                         val user = userSnapshot.getValue(User::class.java)

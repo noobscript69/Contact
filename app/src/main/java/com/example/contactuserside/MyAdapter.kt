@@ -21,7 +21,7 @@ class MyAdapter(private val userList : ArrayList<User>) : RecyclerView.Adapter<M
 
         val currentItem = userList[position]
 
-        holder.location.text = currentItem.location
+        holder.address.text = currentItem.address
         holder.inTime.text = currentItem.inTime
         holder.outTime.text = currentItem.outTime
         holder.readerUID.text = currentItem.readerUID
@@ -36,7 +36,7 @@ class MyAdapter(private val userList : ArrayList<User>) : RecyclerView.Adapter<M
 
     class MyViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
 
-        val location : TextView = itemView.findViewById(R.id.loc)
+        val address : TextView = itemView.findViewById(R.id.loc)
         val inTime : TextView = itemView.findViewById(R.id.inti)
         val outTime : TextView = itemView.findViewById(R.id.outi)
         val readerUID : TextView = itemView.findViewById(R.id.uid)

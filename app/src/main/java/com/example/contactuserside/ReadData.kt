@@ -15,6 +15,8 @@ class ReadData : AppCompatActivity() {
     private lateinit var binding : ActivityReadDataBinding
     private lateinit var database : DatabaseReference
 
+    private var uidSave=""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityReadDataBinding.inflate(layoutInflater)
@@ -29,7 +31,14 @@ class ReadData : AppCompatActivity() {
         val button2 = findViewById<Button>(R.id.recy)
 
         button2.setOnClickListener {
-            startActivity(Intent(this, UserlistActivity::class.java))
+            if (uidSave!=""){
+                val intent=Intent(this,UserlistActivity::class.java)
+//                Toast.makeText(this,uidSave,Toast.LENGTH_SHORT).show()
+                intent.putExtra("uid", uidSave)
+                startActivity(intent)
+            }else{
+                Toast.makeText(this, "Please Enter The UID", Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.readdataBtn.setOnClickListener{
@@ -37,6 +46,7 @@ class ReadData : AppCompatActivity() {
             if (userName.isNotEmpty()){
                 binding.progressBarRead.visibility= View.VISIBLE
                 binding.readdataBtn.visibility=View.INVISIBLE
+                uidSave=userName
                 readData(userName)
             }else{
                 Toast.makeText(this, "Please Enter The UID", Toast.LENGTH_SHORT).show()

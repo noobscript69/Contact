@@ -1,7 +1,7 @@
 package com.example.contactuserside
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
@@ -36,8 +36,9 @@ class UserlistActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
 
                 if (snapshot.exists()){
+                    val uid = intent.getStringExtra("uid")!!
 
-                    for (userSnapshot in snapshot.child("Y9F2T3E7").child("visited").children){
+                    for (userSnapshot in snapshot.child(uid).child("visited").children){
 
 
                         val user = userSnapshot.getValue(User::class.java)

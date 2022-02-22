@@ -48,98 +48,8 @@
         android:visibility="invisible"
         />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        app:cardCornerRadius="8dp"
-        android:layout_marginTop="20dp"
-        app:cardElevation="20dp"
-        app:layout_constraintEnd_toEndOf="@id/readdataBtn"
-        app:layout_constraintStart_toStartOf="@+id/readdataBtn"
-        app:layout_constraintTop_toBottomOf="@+id/readdataBtn"
-        app:cardBackgroundColor="@color/white"
-        >
-        <LinearLayout
-            android:layout_width="361dp"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="6dp"
-            android:layout_marginStart="10dp"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Name : "
-                    android:textColor="@color/black"
-                    android:textSize="26sp"
-                     />
-                <TextView
-                    android:id="@+id/name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="N/A"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-            </LinearLayout>
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        app:cardCornerRadius="8dp"
-        android:layout_marginTop="20dp"
-        app:cardElevation="20dp"
-        app:layout_constraintEnd_toEndOf="@id/readdataBtn"
-        app:layout_constraintStart_toStartOf="@+id/readdataBtn"
-        app:layout_constraintTop_toBottomOf="@id/cardView"
-        app:cardBackgroundColor="@color/white"
-        >
-
-        <LinearLayout
-            android:layout_width="361dp"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="6dp"
-            android:layout_marginStart="10dp"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Phone no : "
-                    android:textColor="@color/black"
-                    android:textSize="26sp"
-                    />
-
-                <TextView
-                    android:id="@+id/phno"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:text="N/A"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
 
 
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
         android:layout_width="wrap_content"
@@ -147,10 +57,10 @@
         app:cardCornerRadius="8dp"
         app:cardElevation="20dp"
         android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardView2"
 
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progress_bar_read"
+        android:layout_marginHorizontal="5dp"
         app:cardBackgroundColor="@color/white"
         >
 
@@ -159,33 +69,68 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="6dp"
             android:layout_marginStart="10dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+
+            >
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:background="@color/teal_200"
+                android:gravity="center"
+                android:paddingHorizontal="120dp"
+                android:paddingVertical="10dp"
+
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Report : "
+                    android:text="Report"
                     android:textColor="@color/black"
-                    android:textSize="26sp"
+                    android:textSize="30sp"
+
                     />
+
+<!--                <TextView-->
+<!--                    android:id="@+id/pos"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="8dp"-->
+
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="20sp" />-->
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal"
+                android:background="@color/white"
+                android:gravity="center"
+
+                android:paddingHorizontal="120dp"
+                android:paddingVertical="10dp"
+
+                >
+
+
 
                 <TextView
                     android:id="@+id/pos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
             </LinearLayout>
+
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 <!--    <Button-->
 <!--        android:id="@+id/post"-->

@@ -61,8 +61,8 @@ class ReadData : AppCompatActivity() {
             binding.progressBarRead.visibility= View.INVISIBLE
             binding.readdataBtn.visibility=View.VISIBLE
             if (it.exists()){
-                val name = it.child("name").value
-                val phno = it.child("mobile").value
+//                val name = it.child("name").value
+//                val phno = it.child("mobile").value
                 val report = it.child("positive").value
 //                val location = it.child("visited").child("0").child("address").value
 //                val inTime = it.child("visited").child("0").child("inTime").value
@@ -70,8 +70,8 @@ class ReadData : AppCompatActivity() {
 //                val readerUID = it.child("visited").child("0").child("readerUID").value
 
                 binding.etusername.text.clear()
-                binding.name.text = name.toString()
-                binding.phno.text = phno.toString()
+//                binding.name.text = name.toString()
+//                binding.phno.text = phno.toString()
                 binding.pos.text = report.toString()
 //                binding.place.text = location.toString()
 //                binding.intime.text = inTime.toString()

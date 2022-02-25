@@ -2,8 +2,7 @@ package com.example.contactuserside.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.contactuserside.db.model.dataModel
-import com.google.firebase.database.core.Repo
+import com.example.contactuserside.models.dataModel
 
 @Dao
 interface uidDao {

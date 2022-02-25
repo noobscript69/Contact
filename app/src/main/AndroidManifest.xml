@@ -9,17 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DataReceive.">
-        <activity android:name=".ReadData"></activity>
-        <activity android:name=".SubmitActivity"></activity>
-        <activity android:name=".UserListActivity"></activity>
-        <activity android:name=".PostActivity"></activity>
+        <activity android:name=".activities.ShowProfileActivity" />
+        <activity android:name=".activities.ReportPositiveActivity" />
+        <activity android:name=".activities.UserListActivity" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -1,4 +1,4 @@
-package com.example.contactuserside.db.model
+package com.example.contactuserside.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

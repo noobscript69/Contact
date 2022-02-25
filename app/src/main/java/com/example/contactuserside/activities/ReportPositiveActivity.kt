@@ -1,4 +1,4 @@
-package com.example.contactuserside
+package com.example.contactuserside.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,10 +10,11 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.contactuserside.R
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 
-class SubmitActivity : AppCompatActivity() {
+class ReportPositiveActivity : AppCompatActivity() {
 
     private lateinit var btn:MaterialButton
     private lateinit var nameEd :TextInputEditText
@@ -22,7 +23,7 @@ class SubmitActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_submit)
+        setContentView(R.layout.activity_report_positive)
         initViews()
         btn.setOnClickListener {
             progressBar.visibility= View.VISIBLE
@@ -42,7 +43,7 @@ class SubmitActivity : AppCompatActivity() {
                 Toast.makeText(this,response,Toast.LENGTH_SHORT).show()
                 startActivity(Intent(this, MainActivity::class.java))
             },
-            Response.ErrorListener { error->
+            Response.ErrorListener {
                 progressBar.visibility=View.GONE
                 btn.visibility=View.VISIBLE
                 Toast.makeText(this,"Couldn't update the data, please try again after some time.",Toast.LENGTH_SHORT).show()

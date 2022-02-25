@@ -1,4 +1,4 @@
-package com.example.contactuserside
+package com.example.contactuserside.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -10,13 +10,16 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.contactuserside.databinding.ActivityReadDataBinding
-import com.example.contactuserside.db.viewModel
+import com.example.contactuserside.adapters.MyAdapter
+import com.example.contactuserside.R
+import com.example.contactuserside.models.User
+import com.example.contactuserside.databinding.ActivityShowProfileBinding
+import com.example.contactuserside.db.viewModels.ViewModel
 import com.google.firebase.database.*
 
-class ReadData : AppCompatActivity() {
+class ShowProfileActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityReadDataBinding
+    private lateinit var binding : ActivityShowProfileBinding
     private lateinit var database : DatabaseReference
     private lateinit var userRecyclerview: RecyclerView
     private lateinit var userArrayList: ArrayList<User>
@@ -25,7 +28,7 @@ class ReadData : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityReadDataBinding.inflate(layoutInflater)
+        binding = ActivityShowProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 //        Toast.makeText(this,"halwa",Toast.LENGTH_SHORT).show()
@@ -36,7 +39,7 @@ class ReadData : AppCompatActivity() {
         val button = findViewById<Button>(R.id.posto)
 
         button.setOnClickListener {
-            startActivity(Intent(this, SubmitActivity::class.java))
+            startActivity(Intent(this, ReportPositiveActivity::class.java))
         }
 
 //        val button2 = findViewById<Button>(R.id.recy)
@@ -54,15 +57,16 @@ class ReadData : AppCompatActivity() {
         readData(uidSave)
 
         binding.signOutButton.setOnClickListener {
+            binding.signOutProBar.visibility=View.VISIBLE
+            binding.signOutButton.visibility=View.INVISIBLE
             val viewModel= ViewModelProvider(
                 this,
                 ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-            )[viewModel::class.java]
+            )[ViewModel::class.java]
 
             viewModel.deleteRepo()
-
             Handler().postDelayed({
-                val intent=Intent(this,MainActivity::class.java)
+                val intent=Intent(this, MainActivity::class.java)
                 startActivity(intent)
             }, 1000)
         }

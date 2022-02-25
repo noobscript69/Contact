@@ -1,9 +1,12 @@
-package com.example.contactuserside
+package com.example.contactuserside.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.contactuserside.adapters.MyAdapter
+import com.example.contactuserside.R
+import com.example.contactuserside.models.User
 import com.google.firebase.database.*
 
 class UserListActivity : AppCompatActivity() {

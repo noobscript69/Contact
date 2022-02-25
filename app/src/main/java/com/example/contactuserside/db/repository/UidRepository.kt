@@ -2,10 +2,10 @@ package com.example.contactuserside.db.repository
 
 import androidx.lifecycle.LiveData
 import com.example.contactuserside.db.dao.uidDao
-import com.example.contactuserside.db.model.dataModel
+import com.example.contactuserside.models.dataModel
 
 
-class uidRepository(private val dao:uidDao) {
+class UidRepository(private val dao:uidDao) {
 
     val allUIDs: LiveData<List<dataModel>> = dao.getUIDItems()
 

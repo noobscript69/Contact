@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/bhaiya wala app/Contact/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/bhaiya wala app/Contact/app/src/main/res/layout/activity_read_data.xml" value="0.1796875" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/bhaiya wala app/Contact/app/src/main/res/layout/fill_uid.xml" value="0.1796875" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/bhaiya wala app/Contact/app/src/main/res/layout/if_uid_exists.xml" value="0.1796875" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/halwa/Contact/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/halwa/Contact/app/src/main/res/layout/activity_post.xml" value="0.1796875" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/halwa/Contact/app/src/main/res/layout/activity_read_data.xml" value="0.1796875" />

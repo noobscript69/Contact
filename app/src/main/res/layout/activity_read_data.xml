@@ -8,34 +8,6 @@
     android:background="@color/white"
     tools:context=".ReadData">
 
-    <EditText
-        android:id="@+id/etusername"
-        android:layout_width="360dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:hint="Enter UID"
-        android:textColorHint="@color/black"
-        android:gravity="center"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/readdataBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/teal_200"
-        android:text="Get Data"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/etusername" />
 
     <ProgressBar
         android:id="@+id/progress_bar_read"
@@ -44,8 +16,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/etusername"
-        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        />
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile Info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="45sp"
+        android:textStyle="bold"
         />
 
 
@@ -57,41 +40,35 @@
         app:cardCornerRadius="8dp"
         app:cardElevation="20dp"
         android:layout_marginTop="20dp"
-
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/progress_bar_read"
         android:layout_marginHorizontal="5dp"
         app:cardBackgroundColor="@color/white"
         >
 
         <LinearLayout
+            android:layout_gravity="center"
             android:layout_width="341dp"
             android:layout_height="wrap_content"
             android:layout_marginVertical="6dp"
-            android:layout_marginStart="10dp"
             android:orientation="vertical"
-
+            android:gravity="center_horizontal"
             >
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="center"
                 android:orientation="horizontal"
-                android:background="@color/teal_200"
-                android:gravity="center"
-                android:paddingHorizontal="120dp"
                 android:paddingVertical="10dp"
-
                 >
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Report"
+                    android:text="Exposure Possibility"
                     android:textColor="@color/black"
                     android:textSize="30sp"
-
                     />
 
 <!--                <TextView-->
@@ -104,30 +81,17 @@
 <!--                    android:textSize="20sp" />-->
 
             </LinearLayout>
-            <LinearLayout
+            <TextView
+                android:id="@+id/pos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:orientation="horizontal"
-                android:background="@color/white"
+                android:textColor="@color/black"
+                android:textSize="20sp"
                 android:gravity="center"
-
-                android:paddingHorizontal="120dp"
-                android:paddingVertical="10dp"
-
-                >
+                android:text="Loading"
+                />
 
 
-
-                <TextView
-                    android:id="@+id/pos"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
-
-            </LinearLayout>
 
         </LinearLayout>
 
@@ -149,39 +113,38 @@
         android:id="@+id/cardView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView3"
-
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         >
 
         <LinearLayout
             android:layout_width="361dp"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:orientation="vertical">
+            android:padding="30dp"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            >
 
             <Button
                 android:id="@+id/recy"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_margin="20dp"
-                android:layout_marginRight="400dp"
                 android:backgroundTint="@color/teal_200"
-                android:text="Get Your Location"
+                android:text="See your visited locations"
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ifYouAre"
                 />
-
-
 
         </LinearLayout>
 
@@ -197,7 +160,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardView6"
-            android:layout_marginTop="180dp"
+            android:layout_marginTop="100dp"
             android:textSize="20sp"
             />
 
@@ -208,13 +171,24 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="20sp"
         android:backgroundTint="@color/teal_200"
-        android:text="Get Yourself Isolated"
+        android:text="Report Positive"
         android:textSize="15sp"
         android:elevation="20dp"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ifYouAre"
+        />
+
+    <Button
+        android:id="@+id/signOutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Out"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/posto"
+        android:layout_marginTop="30dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

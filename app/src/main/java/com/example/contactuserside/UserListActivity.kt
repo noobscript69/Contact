@@ -6,12 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 
-class UserlistActivity : AppCompatActivity() {
+class UserListActivity : AppCompatActivity() {
 
-    private lateinit var dbref : DatabaseReference
-    private lateinit var userRecyclerview : RecyclerView
-    private lateinit var userArrayList : ArrayList<User>
-
+    private lateinit var dbref: DatabaseReference
+    private lateinit var userRecyclerview: RecyclerView
+    private lateinit var userArrayList: ArrayList<User>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,37 +27,23 @@ class UserlistActivity : AppCompatActivity() {
     }
 
     private fun getUserData() {
-
         dbref = FirebaseDatabase.getInstance().getReference("users")
 
-        dbref.addValueEventListener(object : ValueEventListener{
-
+        dbref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-
-                if (snapshot.exists()){
+                if (snapshot.exists()) {
+                    userArrayList.clear()
                     val uid = intent.getStringExtra("uid")!!
-
-                    for (userSnapshot in snapshot.child(uid).child("visited").children){
-
-
+                    for (userSnapshot in snapshot.child(uid).child("visited").children) {
                         val user = userSnapshot.getValue(User::class.java)
                         userArrayList.add(user!!)
-
                     }
-
                     userRecyclerview.adapter = MyAdapter(userArrayList)
-
-
                 }
-
             }
-
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
-
-
         })
-
     }
 }

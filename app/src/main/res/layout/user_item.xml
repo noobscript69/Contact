@@ -35,9 +35,11 @@
                 android:id="@+id/loc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Location: "
+                android:text="Location"
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 />
 
         </LinearLayout>
@@ -46,7 +48,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -62,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Location: "
+                android:text="inTime"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -87,7 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Location: "
+                android:text="outTime"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
@@ -111,7 +112,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Location: "
+                android:text="UID"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 

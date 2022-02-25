@@ -1,9 +1,11 @@
 package com.example.contactuserside.activities
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
@@ -31,29 +33,14 @@ class ShowProfileActivity : AppCompatActivity() {
         binding = ActivityShowProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        Toast.makeText(this,"halwa",Toast.LENGTH_SHORT).show()
         uidSave= intent.getStringExtra("uid").toString()
-//        Toast.makeText(this,tempUid,Toast.LENGTH_SHORT).show()
 
-
-        val button = findViewById<Button>(R.id.posto)
-
-        button.setOnClickListener {
-            startActivity(Intent(this, ReportPositiveActivity::class.java))
+        binding.posto.setOnClickListener {
+            val intent=Intent(this, ReportPositiveActivity::class.java)
+            intent.putExtra("uid",uidSave)
+            startActivity(intent)
         }
 
-//        val button2 = findViewById<Button>(R.id.recy)
-
-//        button2.setOnClickListener {
-//            if (uidSave!=""){
-//                val intent=Intent(this,UserListActivity::class.java)
-////                Toast.makeText(this,uidSave,Toast.LENGTH_SHORT).show()
-//                intent.putExtra("uid", uidSave)
-//                startActivity(intent)
-//            }else{
-//                Toast.makeText(this, "Some error occurred, please try again after some time.", Toast.LENGTH_SHORT).show()
-//            }
-//        }
         readData(uidSave)
 
         binding.signOutButton.setOnClickListener {
@@ -74,7 +61,6 @@ class ShowProfileActivity : AppCompatActivity() {
         userRecyclerview = binding.recyclerViewList
         userRecyclerview.layoutManager = LinearLayoutManager(this)
         userRecyclerview.setHasFixedSize(true)
-
         userArrayList = arrayListOf()
         getUserData()
     }
@@ -95,7 +81,7 @@ class ShowProfileActivity : AppCompatActivity() {
                 }
             }
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                Log.d("Firebase","Firebase misbehaving")
             }
         })
     }
@@ -106,25 +92,16 @@ class ShowProfileActivity : AppCompatActivity() {
             binding.progressBarRead.visibility= View.GONE
             if (it.exists()){
                 binding.progressBarRead.visibility=View.GONE
-//                val name = it.child("name").value
-//                val phno = it.child("mobile").value
                 val report = it.child("positive").value
-//                val location = it.child("visited").child("0").child("address").value
-//                val inTime = it.child("visited").child("0").child("inTime").value
-//                val outTime = it.child("visited").child("0").child("outTime").value
-//                val readerUID = it.child("visited").child("0").child("readerUID").value
-//                binding.name.text = name.toString()
-//                binding.phno.text = phno.toString()
                 val temp=report.toString()
-                if(temp=="true")
-                    binding.pos.text="YES"
-                else
-                    binding.pos.text="NO"
-//                binding.place.text = location.toString()
-//                binding.intime.text = inTime.toString()
-//                binding.out.text = outTime.toString()
-//                binding.uid.text = readerUID.toString()
-
+                if(temp=="true") {
+                    binding.pos.text = "YES"
+                    binding.cardView3.setCardBackgroundColor(Color.parseColor("#E44545"))
+                }
+                else {
+                    binding.pos.text = "NO"
+                    binding.cardView3.setCardBackgroundColor(Color.parseColor("#42AC30"))
+                }
             }else{
                 Toast.makeText(this, "Wrong UID Entered", Toast.LENGTH_SHORT).show()
             }

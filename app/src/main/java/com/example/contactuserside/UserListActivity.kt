@@ -21,7 +21,7 @@ class UserListActivity : AppCompatActivity() {
         userRecyclerview.layoutManager = LinearLayoutManager(this)
         userRecyclerview.setHasFixedSize(true)
 
-        userArrayList = arrayListOf<User>()
+        userArrayList = arrayListOf()
         getUserData()
 
     }

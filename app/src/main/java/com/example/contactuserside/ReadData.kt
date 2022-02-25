@@ -8,15 +8,18 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.contactuserside.databinding.ActivityReadDataBinding
 import com.example.contactuserside.db.viewModel
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 
 class ReadData : AppCompatActivity() {
 
     private lateinit var binding : ActivityReadDataBinding
     private lateinit var database : DatabaseReference
+    private lateinit var userRecyclerview: RecyclerView
+    private lateinit var userArrayList: ArrayList<User>
 
     private var uidSave=""
 
@@ -36,18 +39,18 @@ class ReadData : AppCompatActivity() {
             startActivity(Intent(this, SubmitActivity::class.java))
         }
 
-        val button2 = findViewById<Button>(R.id.recy)
+//        val button2 = findViewById<Button>(R.id.recy)
 
-        button2.setOnClickListener {
-            if (uidSave!=""){
-                val intent=Intent(this,UserListActivity::class.java)
-//                Toast.makeText(this,uidSave,Toast.LENGTH_SHORT).show()
-                intent.putExtra("uid", uidSave)
-                startActivity(intent)
-            }else{
-                Toast.makeText(this, "Some error occurred, please try again after some time.", Toast.LENGTH_SHORT).show()
-            }
-        }
+//        button2.setOnClickListener {
+//            if (uidSave!=""){
+//                val intent=Intent(this,UserListActivity::class.java)
+////                Toast.makeText(this,uidSave,Toast.LENGTH_SHORT).show()
+//                intent.putExtra("uid", uidSave)
+//                startActivity(intent)
+//            }else{
+//                Toast.makeText(this, "Some error occurred, please try again after some time.", Toast.LENGTH_SHORT).show()
+//            }
+//        }
         readData(uidSave)
 
         binding.signOutButton.setOnClickListener {
@@ -63,14 +66,42 @@ class ReadData : AppCompatActivity() {
                 startActivity(intent)
             }, 1000)
         }
+
+        userRecyclerview = binding.recyclerViewList
+        userRecyclerview.layoutManager = LinearLayoutManager(this)
+        userRecyclerview.setHasFixedSize(true)
+
+        userArrayList = arrayListOf()
+        getUserData()
+    }
+
+    private fun getUserData() {
+        database = FirebaseDatabase.getInstance().getReference("users")
+
+        database.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    userArrayList.clear()
+                    val uid = intent.getStringExtra("uid")!!
+                    for (userSnapshot in snapshot.child(uid).child("visited").children) {
+                        val user = userSnapshot.getValue(User::class.java)
+                        userArrayList.add(user!!)
+                    }
+                    userRecyclerview.adapter = MyAdapter(userArrayList)
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
     }
 
     private fun readData(showGraph: String) {
         database = FirebaseDatabase.getInstance().getReference("users")
         database.child(showGraph).get().addOnSuccessListener{
-            binding.progressBarRead.visibility= View.INVISIBLE
+            binding.progressBarRead.visibility= View.GONE
             if (it.exists()){
-                binding.progressBarRead.visibility=View.INVISIBLE
+                binding.progressBarRead.visibility=View.GONE
 //                val name = it.child("name").value
 //                val phno = it.child("mobile").value
                 val report = it.child("positive").value
